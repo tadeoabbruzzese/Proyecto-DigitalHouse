@@ -1,0 +1,72 @@
+<%- include('../partials/metadata') %>
+    <%- include('../partials/header') %>
+
+
+        <main>
+            <section class="banner">
+                <div class="banner-foto">
+                    <img src="/images/banner-01.jpg">
+                    <p class="texto-banner"> TU TIENDA DEPORTIVA</p>
+                </div>
+            </section>
+            <section class="productos-novedades">
+                <h2 class="titulo-seccion"> TODOS LOS PRODUCTOS</h2>
+                <div class="catalogo-productos">
+                    <% getProductList.forEach( getProductList => { %>
+                        <article>
+                            <div class="fotoProducto">
+                                <% if (getProductList.price_discount !=0) { %>
+                                    <img src="/images/discount-label-for-commerce.png" class="icono-oferta"></i>
+                                    <% } %>
+                                        <a href="/products/detail/<%= getProductList.id %>">
+                                           <% if (getProductList.photo1.includes('https')) { %>
+                                            <img src="<%= getProductList.photo1%>">
+                                           <% } else {%>
+                                            <img src="/images/products/<%= getProductList.photo1%>">
+                                            <% } %>
+                                        </div>
+                                        <h1 class="titulo-producto">
+                                            <%= getProductList.title -%>
+                                        </h1>
+                                        <div class="descripcion-producto">
+                                            <div class="precio-producto">
+                                                <% if (getProductList.price_discount==0) { %>
+                                                    <p class="precio">
+                                                        $<%= getProductList.price %>
+                                                    </p>
+                                                    <% } else { %>
+                                                        <p class="precio">
+                                                            $<%= toThousand(getProductList.price-(getProductList.price * getProductList.price_discount /100))%>
+                                                        </p>
+                                                        <p class="descuento">
+                                                            <%= getProductList.price_discount %>% OFF
+                                                        </p>
+                                                        <% } %>
+                                            </div>
+                                            <div class="etiquetas-categorias">
+            
+                                            </div>
+                                        </div>
+                                        <div class="etiquetas">
+                                            <div>
+                                                <p> Genero: <%= getProductList.genre %>
+                                                </p>
+                                                <p> Talle: <%= getProductList.size %>
+                                                </p>
+                                                <p> Color: <%= getProductList.color %>
+                                                </p>
+                                            </div>
+
+                                        </div>
+                                        </a>
+                            
+                        </article>
+                        <% }) %>
+                </div>
+            </section>
+            <hr>
+
+        </main>
+
+        <%- include('../partials/footer')  %>  
+

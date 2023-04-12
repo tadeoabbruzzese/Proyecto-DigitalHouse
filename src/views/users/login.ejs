@@ -1,0 +1,47 @@
+<%- include('../partials/metadata') %>
+    <%- include('../partials/header') %>
+
+        <main>
+            <form id= "login-form" action="/users/login" method="POST">
+                <section class="form-register">
+                    <div class="logo1">
+                        <a href="/">
+                            <img src="\images\completo-XLR8-mediano.png">
+                        </a>
+                    </div>
+                </div>
+                <div id="warnings">
+                </div>
+            </br>
+                    <h4>Ingresar a tu cuenta</h4>
+                    <div class="errors-form">
+                        <% if (locals && locals.errorMsg) { %>
+                          <% for (let error in errorMsg ) { %>
+                            <p class="errors-form"> <%= errorMsg[error].msg %> </p>          
+                          <% } %>
+                        <% } %>
+                    </div>    
+                    <input class="controls" type="email" name="email" id="email" placeholder="Ingrese su Correo">
+                    <input class="controls" type="password" name="password" id="password" placeholder="Ingrese su Contraseña">
+
+                    <label>
+                        <input type="checkbox" name="remember_user"> Quiero recordar mi sesion! <br>    
+                    </label>
+
+                    <div>
+                        <button class="botons" type="submit"> LOGUEARME </button>
+                    </div>
+
+                    <div>
+                        <h6><a href="./register">¿Olvidaste tu Contraseña?</a></h6>
+                    </div>
+                                        
+                    </br>
+                </section>
+                
+                    
+            </form>
+            <script src="/Javascript/ValidationLogin.js"></script>
+        </main>
+
+        <%- include('../partials/footer') %>

@@ -1,0 +1,136 @@
+<%- include('../partials/metadata') %>
+    <%- include('../partials/header') %>
+    <main>
+        <div class="titulo-producto">
+            <h1> <b> <%= getDetailProduct.title %>  </b> </h1>
+        </div>
+        <div class="padre-contenedor">
+            <div class="container">
+                <div class="div-foto">
+                    <div class="div-contenedor">
+                        <% if (getDetailProduct.photo1.includes('https')) { %>
+                            <img class="img-grande" src="<%= getDetailProduct.photo1%>" alt="">
+                        <% } else {%>
+                            <img class="img-grande" src="/images/products/<%= getDetailProduct.photo1%>" alt="">
+                         <% } %>
+                    </div>                    
+                </div>
+            </div>
+            <div class="container-detalle">
+                <div class="div-detalle">
+                    
+                        <div class="detalle-producto">
+                            <h3 class="description-title"><b>DETALLES DE LA PRENDA</b></h3>                            
+                            <h3 class="description-prod" id="description" name="description">
+                                <%= getDetailProduct.description %></h3>
+                        </div>                    
+                    
+                    <br>
+            
+                    <div class="price">
+                         <% if (getDetailProduct.price_discount==0) { %> 
+                            <p class="precio-descuento">
+                                $<%= toThousand(getDetailProduct.price) %>
+                            </p>
+                            <% } else { %>
+                                <p class="precio-descuento">$<%= toThousand(getDetailProduct.price-(getDetailProduct.price *
+                                        getDetailProduct.price_discount /100))%> &nbsp
+                                        <FONT SIZE=5 style="color:#0EC5D9" ;>
+                                            <%= getDetailProduct.price_discount %>% Off
+                                        </font>
+                                </p>
+                                <% } %>
+                    </div>
+
+                    <br>
+
+                    <div class="cuotas">
+                        <h5 class="tres-cuotas"> 3 Cuotas Sin Interés de </h5>
+                        <h5 class="price-cuotas">
+                            <% if (getDetailProduct.price_discount==0) { %>
+                                $<%= toThousand(getDetailProduct.price/3) %>
+                                    <% } else { %>
+                                        $<%= toThousand((getDetailProduct.price-(getDetailProduct.price * getDetailProduct.price_discount
+                                            /100))/3) %>
+                                            <% } %>
+                        </h5>
+                    </div>
+
+                    <br>
+                    
+                    <div class="form-color" action="">
+                        <label class="label-color " for="color"> COLOR :  <%= getDetailProduct.color %> </label>
+                        <input type="color" id="color" name="color">
+                    </div>
+
+                    <br>
+
+                    <div class="talles">
+                        <p class="talle"> TALLE : <%= getDetailProduct.size %>
+                        </p>
+                    </div>
+
+                    <br>
+
+                    <div class="cantidad">
+                        <label for="cantidad"> CANTIDAD :    </label>
+                        <input class="input" type="number" id="cantidad" name="cantidad">
+                    </div>
+
+                    <br>
+               
+                    <div class="medios-pagos">
+                        <div>
+                            <i class="fas fa-money-check"></i>
+                            <i class="fas fa-money-bill-alt"></i>
+                            <i class="fas fa-credit-card"></i>
+                        </div>                        
+                        
+                        <a class="a-pagos" href="https://www.mercadopago.com.ar/home"> MEDIOS DE PAGO </a>
+                    </div>
+
+                    <div >
+                        <section class="envios">
+                            <h5 class="texto-envios">
+                                ENVIOS: Capital y GBA. <br>
+                                Comprando antes de las 12hs, entregamos en el dia.<br>
+                                Costos: MOTO-Mensajeria ($900 C.A.B.A. / $1500 GBA) Entregas Dia Hábil de 14 a 20hs.
+                            </h5>
+                        </section>
+                    </div>
+                    
+                    <div class="botones-detalle">
+                        <% if (locals.isLogged && userToLog.id_users_categories == 2) { %>
+                            <div class="admin-edition">
+                                <div class="botones-admin">
+                                    <a href="/products/edit/<%= getDetailProduct.id%>" id="input-editar">
+                                        <button type="submit" class="admin-detalle-producto"> EDITAR PRODUCTO </button></a>
+                                </div>
+                                <div class="botones-admin">
+                                    <form action="/products/delete/<%= getDetailProduct.id %>?_method=DELETE" method="POST">
+                                        <button type="submit" class="admin-detalle-producto" > ELIMINAR PRODUCTO</button>
+                                    </form>
+                                </div>
+    
+                            </div> 
+    
+                        <% } else { %>
+    
+                            <div class="agregar-carrito">
+                                <a href="/products/cart "> AGREGAR AL CARRITO </a>
+                            </div>
+    
+                        <% } %>
+    
+                    </div>
+
+                </div>  
+
+                    
+                     
+            </div>            
+   
+        </div>
+    </main>     
+
+    <%- include('../partials/footer') %>

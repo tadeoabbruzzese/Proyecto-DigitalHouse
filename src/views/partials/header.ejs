@@ -1,0 +1,51 @@
+<body>
+    <header>
+        <div class="menu-top">
+            <div class="burger-menu">
+                <a href="/producto"><i class="fas fa-bars"></i></a>
+            </div>
+            <div class="logo">
+                <a href="/">
+                    <img src="/images/completo-XLR8-mediano.png">
+                </a>
+            </div>
+            <div class="menu-perfil">
+                <% if (locals.isLogged && userLogged) { %>
+                   
+                   
+                     <a href="/users/profile"><i class="fas fa-user-check"></i></a> 
+                  
+                   
+                <% } else { %>
+
+                    <a href="/users/register"><i class="fas fa-user-plus"></i></a>
+                    <a href="/users/login"><i class="fas fa-sign-in-alt"></i></a>
+
+                <% } %>
+
+                <a href="/products/cart"><i class="fas fa-shopping-cart"></i></a>
+               
+            </div>
+        </div>
+
+        <div class="menu-categorias">
+            <nav>
+                <div class="menu-genero">
+                    <div class="generos">
+                        <a href="/products">TODOS LOS PRODUCTOS</a>
+                        
+                    </div>
+                    <h3> | </h3>
+                    <div class="menu-prendas">
+                        <a href="/products">REMERAS</a>
+                        <a href="/products">PANTALONES</a>
+                        <a href="/products">SHORTS</a>
+                    </div>
+
+                </div>
+            </nav>
+        </div>
+
+        <a href="https://wa.me/5491166221744" class="boton-wp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+    </header>

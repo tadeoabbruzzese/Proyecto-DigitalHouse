@@ -1,0 +1,86 @@
+<%- include('../partials/metadata') %>
+    <%- include('../partials/header') %>
+
+
+        <main>
+            <form id="newproduct-form" action="/products/create" method="POST" enctype="multipart/form-data" >
+
+                <section class="form-register" >
+                    <div class="logo1">
+                        <a href="/">
+                            <img src="\images\completo-XLR8-mediano.png">
+                        </a>
+                    </div>     
+                
+                    <div id="warnings">
+                    </div>
+                    <br>
+                    <h4>NUEVO PRODUCTO</h4>
+                    <div class="errors-form">
+                        <% if (locals && locals.errorMsg) { %>
+                          <% for (let error in errorMsg ) { %>
+                            <p class="errors-form"> <%= errorMsg[error].msg %> </p>          
+                          <% } %>
+                        <% } %>
+                    </div>  
+                    <input id="title" class="controls" type="text" name="title" id="tituloProducto" placeholder="Nombre del producto" value="<%= locals.old && old.title ? old.title : ''%>">
+                    <br>
+                    <input id="avatar" class="agregar-foto" type="file" name="img1" accept=".jpg, .png, .jpeg" placeholder="Agregar Foto Frente">
+                    
+                    </br>
+                    </br>
+                    <textarea id="description" name="description" rows="10" placeholder="Descripcion del producto" style="width: 100%" value="<%= locals.old && old.description ? old.description : ''%>"> </textarea>
+                    </br>
+                    </br>
+                    <input id="price" class="controls" type="number" name="price" placeholder="Precio" value="<%= locals.old && old.price ? old.price : ''%>">
+                    <input id="price_discount"  class="controls" type="number" name="price_discount" placeholder="Precio Promocional" value="<%= locals.old && old.price_discount ? old.price_discount : ''%>">
+                    <div id="size" for="talle">
+                        <p>TALLE</p>
+                        <label>Small <input id="size" type='radio' name="size" value="small" <%= locals.old && old.size === 'small' ? 'selected' : '' %>></label>
+                        <label>Medium <input id="size" type='radio' name="size" value="medium" <%= locals.old && old.size === 'medium' ? 'selected' : '' %>></label>
+                        <label> Large <input id="size" type='radio' name="size" value="large" <%= locals.old && old.size === 'large' ? 'selected' : '' %>></label>
+                        <label> XL <input id="size" type='radio' name="size" value="xl" <%= locals.old && old.size === 'xl' ? 'selected' : '' %>></label>
+                    </select>
+                    <div id="color" for="color">
+                        <p>COLOR</p>
+                        <label>NEGRO <input id="color" type='radio' name= "color" value="negro" <%= locals.old && old.color === 'negro' ? 'selected' : '' %>></label>
+                        <label>GRIS <input id="color" type='radio' name= "color" value="gris" <%= locals.old && old.color === 'gris' ? 'selected' : '' %>></label>
+                        <label>BLANCO <input id="color" type='radio' name= "color" value="blanco" <%= locals.old && old.color === 'blanco' ? 'selected' : '' %>></label>
+                        <label>COLOR <input  id="color" type='radio' name= "color" value="color" <%= locals.old && old.color === 'color' ? 'selected' : '' %>></label>
+                    </div>
+                    <div id="genre_product" class="genre_product">
+                        <!-- REVISAR CSS -->
+                        <p>CATEGORIAS </p>
+                        <label>HOMBRE<input id="genre_product" type='radio' name='genre_product' value="hombre" <%= locals.old && old.genre_product === 'hombre' ? 'selected' : '' %>> </label>
+                        </br>
+                        <label>MUJER<input id="genre_product" type='radio' name='genre_product' value="mujer" <%= locals.old && old.genre_product === 'mujer' ? 'selected' : '' %>> </label>
+                        </br>
+                        <label>UNISEX<input id="genre_product" type='radio' name='genre_product' value="unisex" <%= locals.old && old.genre_product === 'unisex' ? 'selected' : '' %>> </label>
+                        </br>
+                    </div>
+                    <div id="type" class="categories">
+                        <p> TIPO DE PRENDA </p>
+                        <label>REMERAS<input id="type" type='radio' name='type' value="remeras" <%= locals.old && old.type === 'remeras' ? 'selected' : '' %>> </label>
+                        </br>
+                        <label>PANTALONES<input id="type" type='radio' name='type' value="pantalones" <%= locals.old && old.type === 'pantalones' ? 'selected' : '' %>> </label>
+                        </br>
+                        <label>SHORTS<input id="type" type='radio' name='type' value="short" <%= locals.old && old.type === 'short' ? 'selected' : '' %>> </label>
+                        </br>
+                        
+                    </div>
+                    <div id="new" class="categories">
+                        <p> NUEVO PRODUCTO </p>
+                        <label>SI<input id="new" type='radio' name='new' value="0" <%= locals.old && old.new === '0' ? 'selected' : '' %>> </label>
+                        </br>
+                        <label>NO<input id="new" type='radio' name='new' value="1" <%= locals.old && old.new === '1' ? 'selected' : '' %>> </label>
+                        </br>
+                    </div>
+                    <button class="botons" type="submit"> AGREGAR PRODUCTO</button>
+                    
+
+                </section>
+            </form>
+            <script src="/Javascript/ValidationNewProduct.js"></script>
+        </main>
+
+        <%- include('../partials/footer') %>

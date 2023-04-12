@@ -1,0 +1,68 @@
+<%- include('../partials/metadata') %>
+  <%- include('../partials/header') %>
+
+
+    <main>    
+        <form id="register-form" action="/users/register" method="POST">
+        <section class="form-register">
+          <div class="logo1">
+            <a href="/">
+              <img src="\images\completo-XLR8-mediano.png">
+            </a>
+          </div>
+          <div id="errors">
+          </div>
+        </div>
+        <div id="warnings">
+        </div>
+      </br>
+          <h4>Formulario de Registro</h4>
+          <div class="errors-form">
+            <% if (locals && locals.errorMsg) { %>
+              <% for (let error in errorMsg ) { %>
+                <p class="errors-form"> <%= errorMsg[error].msg %> </p>          
+              <% } %>
+            <% } %>
+          </div>      
+                       
+          <input class="controls" type="text" name="name" id="name" placeholder="Nombre" value="<%= locals.old && old.name ? old.name : ''%>">  
+          <input class="controls" type="text" name="last_name" id="last_name" placeholder="Apellido" value="<%= locals.old && old.last_name ? old.last_name : ''%>">
+          <input id="email" class="controls" type="email" name="email" placeholder="Correo Electrónico" value="<%= locals.old && old.email ? old.email : ''%>">
+          <input class="controls" type="number" name="phone" id="phone" placeholder="Teléfono" value="<%= locals.old && old.phone ? old.phone : ''%>">
+          <input id="password" class="controls" type="password" name="password"  placeholder="Ingrese su Contraseña (Mínimo 8 caracteres)">
+
+          <fieldset>
+            <p>Fecha de nacimiento: <input type="date" name="birthday" value="Fecha de nacimiento"></p>
+          </fieldset>
+          </br>
+          <fieldset>
+            <legend>Seleccione su género:</legend>
+            <div>
+              <input type="radio" id="genre" name="genre" value="Masculino" <%= locals.old && old.genre === 'Masculino' ? 'selected' : '' %>>
+              <label for="Masculino">Masculino</label>
+            </div>
+
+            <div>
+              <input type="radio" id="genre" name="genre" value="Femenino" <%= locals.old && old.genre === 'Femenino' ? 'selected' : '' %>>
+              <label for="Femenino">Femenino</label>
+            </div>
+
+            <div>
+              <input type="radio" id="genre" name="genre" value="Sin genero" <%= locals.old && old.genre === 'Sin genero' ? 'selected' : '' %>>
+              <label for="Sin genero">Sin género</label>
+            </div>
+          </fieldset>
+          </br>
+          <h5>Estoy de acuerdo con <a href="/terminos">Terminos y Condiciones</a></h5>
+
+          <button class="botons" type="submit"> REGISTRARME </button>
+          
+          <h6><a href="/users/login">¿Ya tienes una Cuenta?</a></h6>
+          
+        </section>
+        
+      </form>
+      <script src="/Javascript/ValidationRegister.js"></script>
+    </main>
+
+    <%- include('../partials/footer') %>

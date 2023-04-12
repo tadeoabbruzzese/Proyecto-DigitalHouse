@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Alejandro",
+    "apellido": "Negri",
+    "email": "alemnegri84@gmail.com",
+    "telefono": 1122926663,
+    "password": "xyz12345",
+    "date": "23/11/1984",
+    "genero": "hombre"
+  },
+  {
+    "id": 2,
+    "name": "Tadeo",
+    "lastName": "Abbruzzese",
+    "email": "tadeoabbruzzese@gmail.com",
+    "phone": "1111233431",
+    "password1": "12121212121211",
+    "date": "2022-12-13",
+    "genre": "Masculino"
+  },
+  {
+    "id": 3,
+    "name": "Horacio",
+    "lastName": "Rodriguez",
+    "email": "horacio.prs@gmail.com",
+    "phone": "2615667780",
+    "password1": "1234567890",
+    "date": "16/09/80",
+    "genre": "hombre"
+  },
+  {
+    "id": 4,
+    "name": "Anderson",
+    "lastName": "Marin",
+    "email": "samoyedo15@gmail.com",
+    "phone": "2615633740",
+    "password1": "1234567890",
+    "date": "15/02/96",
+    "genre": "hombre"
+  },
+  {
+    "id": 6,
+    "name": "Jhon Anderson ",
+    "lastName": "Marin",
+    "email": "samoyedo15@outlook.com",
+    "phone": "371273123183",
+    "password1": "12345678",
+    "date": "2023-01-03",
+    "genre": "Masculino"
+  },
+  {
+    "id": 7,
+    "name": "Jeronimo Codina",
+    "lastName": "Marin",
+    "email": "samoyedo15@yahoo.es",
+    "phone": "123461212831",
+    "password1": "12345678",
+    "date": "2022-09-07",
+    "genre": "Sin genero"
+  }
+]

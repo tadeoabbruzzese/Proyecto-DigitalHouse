@@ -1,0 +1,52 @@
+<%- include('../partials/metadata') %>
+  <%- include('../partials/header') %>
+
+  <main>
+    <form action="/users/edit/<%= getUser.id %>?_method=PUT" method="POST">
+      <!-- Se modifica el Method PUT para editar, desde el action usando el method-override instalado en dependencias para editar formularios -->
+      <section class="form-register">
+        <div class="logo1">
+          <a href="/">
+            <img src="\images\completo-XLR8-mediano.png">
+          </a>
+        </div>
+        <h4> EDITANDO MI USUARIO <%= getUser.name %>
+        </h4>
+        <input class="controls" type="name" name="name" id="nombres" value=<%= getUser.name %>>
+        <input class="controls" type="apellido" name="last_name" id="apellido"
+          value=<%= getUser.last_name %>>
+        <input class="controls" type="email" name="email" id="correo" value=<%= getUser.email %>>
+        <input class="controls" type="text" name="phone" id="telefono" value=<%= getUser.phone %>>
+              <input class=" controls" type="password" name="password" id="password"
+          value=<%= getUser.password %>>
+        <p>Fecha de nacimiento: <input type="date" name="birthday" value=<%= getUser.birthday %>></p>
+        </br>
+
+        <label>Seleccione su género:</label>
+        <div>
+          <input type="radio" id="genero" name="genre" value="<%= getUser.genre %>">
+          <label for="Masculino">Masculino</label>
+        </div>
+
+        <div>
+          <input type="radio" id="genero" name="genre" value="<%= getUser.genre %>">
+          <label for="Femenino">Femenino</label>
+        </div>
+
+        <div>
+          <input type="radio" id="genero" name="genre" value="<%= getUser.genre %>">
+          <label for="Sin genero">Sin género</label>
+        </div>
+        <h5>Estoy de acuerdo con <a href="../terminos">Terminos y Condiciones</a></h5>
+        <div class="menu-profile">          
+          <button class="boton-admin-profile" type="submit"> EDITAR </button>          
+        </div>       
+
+
+      </section>
+    </form>
+  </main>
+    
+  
+
+    <%- include('../partials/footer') %>
